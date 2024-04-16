@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
         /* Navigation bar styles */
         nav {
@@ -27,6 +26,8 @@
         }
         p {
             text-align: center;
+            margin-bottom: 20px;
+
         }
         /* Box style for list items */
         .testimonial-container {
@@ -45,15 +46,34 @@
             box-sizing: border-box;
             text-align: left;
         }
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            display: inline-block; /* Ensure each icon appears on a new line */
+            margin: 0 100px; /* Add some space between icons */
+        }
+
+        footer img {
+            width: 30px; /* Adjust the width of the icons */
+            height: auto; /* Maintain aspect ratio */
+        }
+
     </style>
 </head>
 <body>
 <nav>
     <a href="index.html" class="active">HOME </a>
+    <a href="courses.html" >COURSES</a>
     <a href="signup.html">SIGN UP</a>
 </nav>
 
-<p>This website is for students to access jobs and opportunities that are in the market. High school learners can enter their grades to get recommended courses.</p>
+<p>This website is dedicated to helping students explore and access various job opportunities available in the market. Whether you're a high school learner or a recent graduate, our platform provides valuable resources to kickstart your career journey. High school students can input their grades to receive personalized recommendations for courses and career paths that align with their interests and academic achievements.</p>
 
 <h2>How learners like you are achieving their goals</h2>
 <div class="testimonial-container">
@@ -74,7 +94,12 @@
         <p>I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.</p>
     </div>
 </div>
-
+<footer>
+    <a href="https://www.facebook.com"><img src="facebook.jpeg" alt="Facebook"></a>
+    <a href="https://twitter.com"><img src="x.jpeg" alt="Twitter"></a>
+    <a href="https://www.linkedin.com"><img src="linkedin.jpeg" alt="LinkedIn"></a>
+    <a href="https://www.instagram.com"><img src="instagram.jpeg" alt="Instagram"></a>
+</footer>
 </body>
 </html>
 
