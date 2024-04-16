@@ -15,8 +15,8 @@
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 0 10px;
             border-radius: 5px;
+            margin: 0 5px;
         }
         nav a:hover {
             background-color: #555;
@@ -27,13 +27,13 @@
         p {
             text-align: center;
             margin-bottom: 20px;
-
+            padding: 0 20px; /* Add padding to center-align text on mobile */
         }
         /* Box style for list items */
         .testimonial-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
+            justify-content: space-around;
             margin-top: 20px;
         }
         .testimonial {
@@ -42,7 +42,7 @@
             border-radius: 5px;
             padding: 10px;
             margin: 10px;
-            width: calc(25% - 20px); /* Adjust the width here */
+            width: calc(50% - 20px); /* Adjust the width for mobile */
             box-sizing: border-box;
             text-align: left;
         }
@@ -55,8 +55,8 @@
         }
 
         footer a {
-            display: inline-block; /* Ensure each icon appears on a new line */
-            margin: 0 100px; /* Add some space between icons */
+            display: inline-block;
+            margin: 0 10px; /* Adjust the margin for mobile */
         }
 
         footer img {
@@ -64,12 +64,17 @@
             height: auto; /* Maintain aspect ratio */
         }
 
+        @media only screen and (max-width: 600px) {
+            .testimonial {
+                width: calc(100% - 20px); /* Set width to 100% for mobile */
+            }
+        }
     </style>
 </head>
 <body>
 <nav>
-    <a href="index.html" class="active">HOME </a>
-    <a href="courses.html" >COURSES</a>
+    <a href="index.html" class="active">HOME</a>
+    <a href="courses.html">COURSES</a>
     <a href="signup.html">SIGN UP</a>
 </nav>
 
@@ -94,14 +99,17 @@
         <p>I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.</p>
     </div>
 </div>
+
 <footer>
     <a href="https://www.facebook.com"><img src="facebook.jpeg" alt="Facebook"></a>
     <a href="https://twitter.com"><img src="x.jpeg" alt="Twitter"></a>
     <a href="https://www.linkedin.com"><img src="linkedin.jpeg" alt="LinkedIn"></a>
     <a href="https://www.instagram.com"><img src="instagram.jpeg" alt="Instagram"></a>
 </footer>
+
 </body>
 </html>
+
 
 
 
