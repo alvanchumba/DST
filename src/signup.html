@@ -2,122 +2,170 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <title>Recommended Courses</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        #signupForm {
-            width: 300px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        button[type="submit"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        button[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-        }
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #f9f9f9;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            z-index: 9999;
-        }
-        #recommendedCourses {
-            margin-top: 20px;
-            text-align: center;
-        }
-        #recommendedCourses p {
-            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #recommendedCourses {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #recommendedCourses h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #coursesList {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #coursesList li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
+<div class="container">
+    <h1>RECOMMENDED COURSES</h1>
 
-<form id="signupForm" action="/signup" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+        <label for="fieldOfStudy">Field of Study:</label>
+        <select id="fieldOfStudy" required>
+            <option value="">Select Field of Study</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Medicine">Medicine</option>
+            <option value="Agriculture">Agriculture</option>
+            <option value="Hospitality">Hospitality</option>
+        </select>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+        <button type="button" onclick="getRecommendedCourses()">Get Recommended Courses</button>
+    </form>
 
-    <button type="submit">Sign Up</button>
-</form>
-
-<div class="popup" id="gradepopup">
-    <h2>Enter your marks</h2>
-    <label for="grade">Marks:</label>
-    <input type="number" id="grade" name="grade" required><br>
-    <button onclick="submitGrade()">Submit</button>
+    <div id="recommendedCourses">
+        <h2>Recommended Courses:</h2>
+        <ul id="coursesList"></ul>
+    </div>
 </div>
 
-<div id="recommendedCourses"></div>
-
 <script>
-    document.getElementById("signupForm").addEventListener("submit", function (event){
-        event.preventDefault();
-        document.getElementById("gradepopup").style.display="block";
-    });
-    function submitGrade(){
-        var marks=parseInt(document.getElementById("grade").value);
-        var recommendedCourses=document.getElementById("recommendedCourses");
-        if (!isNaN(marks)){
-            if (marks >= 25) {
-                recommendedCourses.innerHTML = "<p>Recommended Courses: Medicine, Engineering <p/>";
-            } else if (marks >= 20 && marks <= 24) {
-                recommendedCourses.innerHTML = "<p>Recommended Courses: Nursing, Clinical Medicine, Medium Engineering Courses</p>";
-            } else if (marks >= 15 && marks <= 19) {
-                recommendedCourses.innerHTML = "<p>Recommended Courses: Education, Other Diploma Courses</p>";
-            } else if (marks >= 5 && marks <= 9) {
-                recommendedCourses.innerHTML = "<p>Recommended Courses: Certificate Courses</p>";
-            } else if (marks >= 0 && marks <= 4) {
-                recommendedCourses.innerHTML = "<p>Sorry, you don't qualify for any courses</p>";
-            } else {
-                recommendedCourses.innerHTML = "<p>Please enter a valid mark</p>";
-            }
-            document.getElementById("gradepopup").style.display="none";
-        } else {
-            alert("please enter a valid mark");
+    function getRecommendedCourses() {
+        var name = document.getElementById('name').value;
+        var fieldOfStudy = document.getElementById('fieldOfStudy').value;
+
+        if (!name || !fieldOfStudy) {
+            alert('Please fill in all fields.');
+            return;
         }
+
+        var recommendedCourses = [];
+
+        // Populate recommended courses based on selected field of study
+        switch (fieldOfStudy) {
+            case 'Computer Science':
+                recommendedCourses = ['Artificial Intelligence (AI)','Data Science','Software Engineering','Computer Networks','Database Management','Cybersecurity'];
+                break;
+            case 'Engineering':
+                recommendedCourses = ['Architectural Engineering','Civil Engineering','Construction Engineering','Ecological Engineering','Geotechnical Engineering','Structural Engineering', 'Transportation Engineering','Chemical Engineering',
+                    'Electrical Engineering','Mechanical Engineering'];
+                break;
+            case 'Medicine':
+                recommendedCourses = ['General Medicine', 'Pediatrics', 'Surgery'];
+                break;
+            case 'Agriculture':
+                recommendedCourses = ['Agronomy', 'Horticulture', 'Animal Science'];
+                break;
+            case 'Hospitality':
+                recommendedCourses = ['Hospitality management', 'Food production', 'Front office operations','Housekeeping and laundry operations','Food and beverage sales and services','Travel and tourism management'];
+                break;
+            default:
+                recommendedCourses = ['No specific courses recommended for the selected field.'];
+        }
+
+        // Display recommended courses
+        var coursesList = document.getElementById('coursesList');
+        coursesList.innerHTML = ''; // Clear previous recommendations
+
+        recommendedCourses.forEach(function(course) {
+            var listItem = document.createElement('li');
+            listItem.textContent = course;
+            coursesList.appendChild(listItem);
+        });
+
+        // Show recommended courses section
+        var recommendedCoursesSection = document.getElementById('recommendedCourses');
+        recommendedCoursesSection.style.display = 'block';
     }
 </script>
-<footer><a href="index.html">HOME</a> </footer>
+
 </body>
 </html>
+
+
+
+
+

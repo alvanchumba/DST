@@ -5,32 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketable Courses</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset default margin and padding */
+        body, html {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            text-align: center; /* Center align all content */
         }
+        /* Header styles */
         header {
             background-color: #333;
             color: #fff;
             padding: 20px 0;
-            text-align: center;
         }
-        h1 {
+        header h1 {
             margin: 0;
         }
+        /* Navigation bar styles */
+        nav {
+            background-color: #555;
+            overflow: hidden;
+        }
+        nav a {
+            display: inline-block;
+            padding: 14px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #777;
+        }
+        /* Main content container styles */
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
+            text-align: left; /* Align content within container to the left */
         }
+        /* Individual course box styles */
         .course {
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-bottom: 20px;
+            text-align: left; /* Align text within course box to the left */
         }
         .course h2 {
             margin-top: 0;
@@ -38,21 +59,37 @@
         .course p {
             margin-bottom: 10px;
         }
+        /* Footer styles */
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 20px 0;
-            width: 100%;
+        }
+        /* Footer link styles */
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
+
 <header>
     <h1>Marketable Courses</h1>
 </header>
 
+<!-- Navigation bar -->
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="courses.html">COURSES</a>
+    <a href="signup.html">SIGN UP</a>
+</nav>
+
+<!-- Main content container -->
 <div class="container">
+    <!-- Courses Section -->
     <div class="course">
         <h2>Web Development Bootcamp</h2>
         <p>Learn HTML, CSS, JavaScript, and more to become a full-stack web developer.</p>
@@ -115,10 +152,17 @@
     </div>
 </div>
 
+<!-- Footer Section -->
 <footer>
-    <p>&copy; Designed by ALVAN</p>
+    <a href="index.html">HOME</a>
+    <a href="courses.html">COURSES</a>
+    <a href="signup.html">SIGN UP</a>
+    <p>&copy; Designed by GROUP5</p>
 </footer>
 
 </body>
 </html>
+
+
+
 
