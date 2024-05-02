@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Opportunities</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #jobForm {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #jobList {
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h1>Job Opportunities</h1>
+<form id="jobForm">
+    <label for="site">Select Website:</label>
+    <select id="site">
+        <option value="linkedin.com">LINKEDIN</option>
+        <option value="careerjet.co.na">CareerJet</option>
+        <!-- Add more options for other websites -->
+    </select>
+    <button type="submit">Get Jobs</button>
+</form>
+
+<div id="jobList">
+    <!-- Jobs will be displayed here -->
+</div>
+
+<script>
+    document.getElementById('jobForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get selected website
+        var selectedSite = document.getElementById('site').value;
+
+        // Fetch job data from selected website (You'll need to implement this part)
+        fetchJobData(selectedSite);
+    });
+
+    function fetchJobData(website) {
+        // You need to implement this function to fetch job data from the selected website
+        // Use AJAX, Fetch API, or any other method to retrieve data
+        // Once you get the data, populate the jobList div with the job information
+
+        // Example:
+        var jobData = [
+            { title: 'Talent and Culture manager', company: 'Accor', location: 'Windhoek,Khomas,Namibia', link: 'https://www.bing.com/ck/a?!&&p=39fad450a10e424fJmltdHM9MTcxNDYwODAwMCZpZ3VpZD0yOWZhODUzNy1mYjAxLTYzNzYtMjNjMS05MTQ0ZmEwMTYyZjQmaW5zaWQ9NTE5OQ&ptn=3&ver=2&hsh=3&fclid=29fa8537-fb01-6376-23c1-9144fa0162f4&psq=jobs+in+windhoek&u=a1aHR0cHM6Ly9uYS5saW5rZWRpbi5jb20vam9icy9qb2JzLWluLXdpbmRob2VrP2NvdW50cnlSZWRpcmVjdGVkPTE&ntb=1' },
+            { title: 'Verification clerk', company: 'Momentum Metropolitant Holdings Limited', location: 'Windhoek,Khomas,Namibia', link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0' },
+            // Add more job objects as needed
+            {
+                title: 'Store manager',
+                company: 'Pepkor Speciality',
+                location: 'Windhoek,Khomas,Namibia',
+                link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0'
+            },
+            {
+                title: 'Finance manager ',
+                company: 'RCL FLOODS',
+                location: 'Windhoek,Khomas,Namibia',
+                link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0'
+            },
+            {
+                title: 'Oshiwambo/English OPI/VRI Interpration',
+                company: 'Kalamcx',
+                location: 'Windhoek,Khomas,Namibia',
+                link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0'
+            },
+            ];
+        var jobdata1=[
+        {
+                title:'Diesel Mechanic 2024',company: 'Elite Employment' ,location: 'windhoek,khomas',
+ link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+            {
+                title:'Database Administrator',company: 'Angolo American' ,location: 'windhoek,khomas',
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+
+            {
+                title:'Manager:Internal Audit',company: 'Nedbank' ,location: 'windhoek,khomas',
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+
+            {
+                title:'Liquour Store Supervisor Job',company: 'Ohlthaver & List' ,location: 'windhoek,khomas',
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+            {
+                title:'Perishables Supervisor Job',company: 'Ohlthaver & List' ,location: 'windhoek,khomas',
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+            {
+                title:'Customer Care Representative',company: 'Epiroc' ,location: 'windhoek,khomas',
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+            {
+                title:'Digital Transformation Solution Architect Job',company: 'Ohlthaver & List' ,location: 'windhoek,khomas',
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+            {
+                title:'Warehouse Operator III',company: 'Komatsu' ,location: 'windhoek,khomas',
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+        ];
+
+
+        var jobListHtml = '<ul>';
+        jobData.forEach(function(job) {
+            jobListHtml += '<li><a href="' + job.link + '">' + job.title + '</a> - ' + job.company + ' - ' + job.location + '</li>';
+        });
+        jobListHtml += '</ul>';
+
+        document.getElementById('jobList').innerHTML = jobListHtml;
+    }
+</script>
+</body>
+</html>
+

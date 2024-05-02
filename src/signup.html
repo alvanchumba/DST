@@ -9,24 +9,42 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            color: green;
+        }
+
+        header {
+            background-color: green;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: green;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
         }
 
         .container {
             width: 90%;
             max-width: 600px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
-            color: #333;
+            color: green;
+            margin-top: 0;
         }
 
         form {
@@ -38,6 +56,7 @@
             font-weight: bold;
             display: block;
             margin-bottom: 8px;
+            color: green;
         }
 
         input, select, button {
@@ -51,8 +70,8 @@
         }
 
         button {
-            background-color: #007bff;
-            color: #fff;
+            background-color: green;
+            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -60,7 +79,7 @@
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: darkgreen;
         }
 
         #recommendedCourses {
@@ -69,7 +88,7 @@
         }
 
         #recommendedCourses h2 {
-            color: #333;
+            color: green;
             margin-bottom: 10px;
         }
 
@@ -86,9 +105,21 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>RECOMMENDED COURSES</h1>
 
+<header>
+    <h1>RECOMMENDED COURSES</h1>
+</header>
+
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="courses.html">COURSES</a>
+    <a href="signup.html">SIGN UP</a>
+
+    <a href="jobs.html">JOB OPPORTUNITIES</a>
+    <a href="about.html">ABOUT US</a>
+</nav>
+
+<div class="container">
     <form>
         <label for="name">Name:</label>
         <input type="text" id="name" required>
@@ -164,6 +195,8 @@
 
 </body>
 </html>
+
+
 
 
 

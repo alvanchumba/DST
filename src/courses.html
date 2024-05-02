@@ -11,62 +11,68 @@
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            color: #333; /* Set default text color */
             text-align: center; /* Center align all content */
         }
-        /* Header styles */
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-        }
-        header h1 {
-            margin: 0;
-        }
-        /* Navigation bar styles */
+
+
+
         nav {
-            background-color: #555;
-            overflow: hidden;
+            background-color: green; /* Green navigation background */
+            padding: 10px 0;
         }
+
         nav a {
-            display: inline-block;
-            padding: 14px 20px;
             color: #fff;
             text-decoration: none;
-            transition: background-color 0.3s;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
         }
-        nav a:hover {
-            background-color: #777;
+
+        nav a:hover, nav a.active {
+            background-color: #007bff; /* Hover and active color */
         }
-        /* Main content container styles */
+
+        /* Main Content Container Styles */
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
-            text-align: left; /* Align content within container to the left */
-        }
-        /* Individual course box styles */
-        .course {
             background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        /* Individual Course Box Styles */
+        .course {
+            background-color: green;
+            color: #fff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-bottom: 20px;
-            text-align: left; /* Align text within course box to the left */
         }
+
         .course h2 {
             margin-top: 0;
         }
+
         .course p {
             margin-bottom: 10px;
         }
-        /* Footer styles */
+
+        /* Footer Styles */
         footer {
-            background-color: #333;
+            background-color: green; /* Green footer background */
             color: #fff;
             text-align: center;
             padding: 20px 0;
         }
-        /* Footer link styles */
+
+        /* Footer Link Styles */
         footer a {
             color: #fff;
             text-decoration: none;
@@ -76,18 +82,18 @@
 </head>
 <body>
 
-<header>
-    <h1>Marketable Courses</h1>
-</header>
 
-<!-- Navigation bar -->
+
+<!-- Navigation Bar -->
 <nav>
     <a href="index.html">HOME</a>
     <a href="courses.html">COURSES</a>
     <a href="signup.html">SIGN UP</a>
+    <a href="jobs.html">JOB OPPORTUNITIES</a>
+    <a href="about.html">ABOUT US</a>
 </nav>
 
-<!-- Main content container -->
+<!-- Main Content Container -->
 <div class="container">
     <!-- Courses Section -->
     <div class="course">
@@ -157,11 +163,15 @@
     <a href="index.html">HOME</a>
     <a href="courses.html">COURSES</a>
     <a href="signup.html">SIGN UP</a>
+    <a href="about.html">ABOUT US</a>
     <p>&copy; Designed by GROUP5</p>
 </footer>
 
 </body>
 </html>
+
+
+
 
 
 
