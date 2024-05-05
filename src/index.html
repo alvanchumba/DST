@@ -3,184 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-  <style>
-      /* Reset default margin and padding */
-      body, html {
-          margin: 0;
-          padding: 0;
-      }
-
-      /* Global styles */
-      body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background-color: #f5f5f5;
-          color: GREEN;
-          line-height: 1.6;
-          overflow-x: hidden; /* Prevent horizontal scrollbar */
-      }
-
-      /* Navigation bar styles */
-      nav {
-          background-color: #333;
-          padding: 10px 0;
-          text-align: center;
-      }
-
-      nav a {
-          color: #fff;
-          text-decoration: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          margin: 0 5px;
-          transition: background-color 0.3s ease;
-      }
-
-      nav a:hover, nav a.active {
-          background-color: #555;
-      }
-
-      .container {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 20px;
-          background-color: #fff;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      h1 {
-          text-align: center;
-          color: #333;
-      }
-
-      p {
-          text-align: center;
-          font-size: 1.1em;
-          margin-bottom: 20px;
-      }
-
-      form {
-          text-align: center;
-      }
-
-      label {
-          display: block;
-          margin-bottom: 8px;
-          font-weight: bold;
-      }
-
-      input, select {
-          width: 100%;
-          padding: 12px;
-          margin-bottom: 20px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          box-sizing: border-box;
-          transition: border-color 0.3s ease;
-      }
-
-      input:focus, select:focus {
-          outline: none;
-          border-color: #007bff;
-      }
-
-      button {
-          width: 100%;
-          padding: 12px;
-          border: none;
-          border-radius: 5px;
-          background-color: #007bff;
-          color: #fff;
-          font-size: 16px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-      }
-
-      button:hover {
-          background-color: #0056b3;
-      }
-
-      .testimonial-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          margin-top: 20px;
-      }
-
-      .testimonial {
-          background-color: #fff;
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          padding: 20px;
-          margin: 10px;
-          width: calc(50% - 20px); /* Adjust the width for mobile */
-          box-sizing: border-box;
-          text-align: left;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          transition: transform 0.3s ease;
-      }
-
-      .testimonial:hover {
-          transform: translateY(-5px);
-      }
-
-      footer {
-          background-color: #333;
-          color: #fff;
-          text-align: center;
-          padding: 20px 0;
-      }
-
-      footer a {
-          display: inline-block;
-          margin: 0 10px;
-      }
-
-      footer img {
-          width: 30px;
-          height: auto;
-      }
-
-  </style>
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-<nav>
-    <a href="index.html" class="active">HOME</a>
-    <a href="courses.html">COURSES</a>
-    <a href="signup.html">SIGN UP</a>
-    <a href="jobs.html">JOB OPPORTUNITIES</a>
-    <a href="about.html">ABOUT US</a>
-</nav>
 
-<p>This website is dedicated to helping students explore and access various job opportunities available in the market. Whether you're a high school learner or a recent graduate, our platform provides valuable resources to kickstart your career journey. High school students can input their grades to receive personalized recommendations for courses and career paths that align with their interests and academic achievements.</p>
-<img src="graduate.jpg" alt="graduate.jpg">
-<img src="students.jpg" alt="students.jpg">
-<img src="work.jpg" alt="work.jpg">
-<h2>How learners like you are achieving their goals</h2>
-<div class="testimonial-container">
-    <div class="testimonial">
-        <p><strong>John Doe</strong></p>
-        <p>I am proud to say that after a few months of taking this course...I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.</p>
-    </div>
-    <div class="testimonial">
-        <p><strong>Jane Smith</strong></p>
-        <p>This course helped me freshen up on my product manager skills and land a job at Facebook! Thanks guys :)</p>
-    </div>
-    <div class="testimonial">
-        <p><strong>Michael Johnson</strong></p>
-        <p>One of the best courses on management and leadership I have come across so far. The advice is practical, and examples highly relatable. Would help anyone become a better manager.</p>
-    </div>
-    <div class="testimonial">
-        <p><strong>Emily Davis</strong></p>
-        <p>I highly recommend this course for all budding data scientists. Even people with no prior knowledge of any visualization tools can become a master after completing this course.</p>
+<div class="container">
+    <h1>Login</h1>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="admin" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="admin" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const redirectDestination = localStorage.getItem('redirectDestination');
+        if (redirectDestination) {
+            localStorage.removeItem('redirectDestination'); // Remove it after use
+            location.href = redirectDestination;
+        }
+    });
 
+    function showSignIn(destination) {
+        localStorage.setItem('redirectDestination', destination);
+        location.href = "index.html";
+    }
+</script>
 
 </body>
 </html>
+
+
+
+
 
 
 

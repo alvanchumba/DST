@@ -1,204 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Recommended Courses</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            color: green;
-        }
-
-        header {
-            background-color: green;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        nav {
-            background-color: green;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            color: green;
-            margin-top: 0;
-        }
-
-        form {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 8px;
-            color: green;
-        }
-
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: green;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: darkgreen;
-        }
-
-        #recommendedCourses {
-            display: none;
-            margin-top: 20px;
-        }
-
-        #recommendedCourses h2 {
-            color: green;
-            margin-bottom: 10px;
-        }
-
-        #coursesList {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #coursesList li {
-            padding: 8px 0;
-            border-bottom: 1px solid #ddd;
-        }
-    </style>
+    <title>SIGNUP</title>
+   <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-
-<header>
-    <h1>RECOMMENDED COURSES</h1>
-</header>
-
-<nav>
-    <a href="index.html">HOME</a>
-    <a href="courses.html">COURSES</a>
-    <a href="signup.html">SIGN UP</a>
-
-    <a href="jobs.html">JOB OPPORTUNITIES</a>
-    <a href="about.html">ABOUT US</a>
-</nav>
-
 <div class="container">
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
+    <h1>SIGN UP</h1>
+<form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
-        <label for="fieldOfStudy">Field of Study:</label>
-        <select id="fieldOfStudy" required>
-            <option value="">Select Field of Study</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Medicine">Medicine</option>
-            <option value="Agriculture">Agriculture</option>
-            <option value="Hospitality">Hospitality</option>
-        </select>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"  required>
 
-        <button type="button" onclick="getRecommendedCourses()">Get Recommended Courses</button>
-    </form>
-
-    <div id="recommendedCourses">
-        <h2>Recommended Courses:</h2>
-        <ul id="coursesList"></ul>
-    </div>
+    <button type="submit" >Sign Up</button>
+</form>
+<div>
+    <p>Already have an account? <a href="index.html">Login</a></p>
 </div>
-
-<script>
-    function getRecommendedCourses() {
-        var name = document.getElementById('name').value;
-        var fieldOfStudy = document.getElementById('fieldOfStudy').value;
-
-        if (!name || !fieldOfStudy) {
-            alert('Please fill in all fields.');
-            return;
-        }
-
-        var recommendedCourses = [];
-
-        // Populate recommended courses based on selected field of study
-        switch (fieldOfStudy) {
-            case 'Computer Science':
-                recommendedCourses = ['Artificial Intelligence (AI)','Data Science','Software Engineering','Computer Networks','Database Management','Cybersecurity'];
-                break;
-            case 'Engineering':
-                recommendedCourses = ['Architectural Engineering','Civil Engineering','Construction Engineering','Ecological Engineering','Geotechnical Engineering','Structural Engineering', 'Transportation Engineering','Chemical Engineering',
-                    'Electrical Engineering','Mechanical Engineering'];
-                break;
-            case 'Medicine':
-                recommendedCourses = ['General Medicine', 'Pediatrics', 'Surgery'];
-                break;
-            case 'Agriculture':
-                recommendedCourses = ['Agronomy', 'Horticulture', 'Animal Science'];
-                break;
-            case 'Hospitality':
-                recommendedCourses = ['Hospitality management', 'Food production', 'Front office operations','Housekeeping and laundry operations','Food and beverage sales and services','Travel and tourism management'];
-                break;
-            default:
-                recommendedCourses = ['No specific courses recommended for the selected field.'];
-        }
-
-        // Display recommended courses
-        var coursesList = document.getElementById('coursesList');
-        coursesList.innerHTML = ''; // Clear previous recommendations
-
-        recommendedCourses.forEach(function(course) {
-            var listItem = document.createElement('li');
-            listItem.textContent = course;
-            coursesList.appendChild(listItem);
-        });
-
-        // Show recommended courses section
-        var recommendedCoursesSection = document.getElementById('recommendedCourses');
-        recommendedCoursesSection.style.display = 'block';
-    }
-</script>
-
+</div>
 </body>
+
+
 </html>
-
-
-
-
-
-
-
