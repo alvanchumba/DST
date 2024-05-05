@@ -9,6 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: darkgray;
+
         }
 
         h1 {
@@ -55,55 +57,83 @@
             padding: 8px;
             font-size: 16px;
         }
+
+        #attractive-message {
+            background-color: #f7f7f7;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .message-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #attractive-message h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #attractive-message p {
+            line-height: 1.6;
+            color: #666;
+        }
     </style>
 </head>
 <body>
-<h1>Job Opportunities</h1>
-<form id="jobForm">
-    <label for="site">Select Website:</label>
-    <select id="site">
-        <option value="linkedin.com">LINKEDIN</option>
-        <option value="careerjet.co.na">CareerJet</option>
-        <!-- Add more options for other websites -->
-    </select>
-    <button type="submit">Get Jobs</button>
-</form>
+<header>
+    <h1>Job Opportunities</h1>
+</header>
 
-<div id="jobList">
-    <!-- Jobs will be displayed here -->
-</div>
+<section id="attractive-message">
+    <div class="message-content">
+        <h2>Explore Exciting Job Opportunities</h2>
+        <p>Discover your next career move with our curated selection of job openings from top companies.
+            Whether you're a recent graduate or seasoned professional, there's a perfect opportunity waiting
+            for you. Browse through a variety of industries and roles to find the job that matches your
+            skills and aspirations.</p>
+        <p>Take the next step towards a rewarding career path. Start your journey today!</p>
+    </div>
+</section>
+
+<section>
+    <form id="jobForm">
+        <button type="submit">Get Jobs</button>
+    </form>
+
+    <div id="jobList">
+        <!-- Jobs will be displayed here -->
+    </div>
+</section>
 
 <script>
     document.getElementById('jobForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
 
-        // Get selected website
-        var selectedSite = document.getElementById('site').value;
-
-        // Fetch job data from selected website (You'll need to implement this part)
-        fetchJobData(selectedSite);
+        // Fetch job data (You'll need to implement this part)
+        fetchJobData();
     });
 
-    function fetchJobData(website) {
-        // You need to implement this function to fetch job data from the selected website
+    function fetchJobData() {
+        // You need to implement this function to fetch job data from the server
         // Use AJAX, Fetch API, or any other method to retrieve data
         // Once you get the data, populate the jobList div with the job information
 
         // Example:
         var jobData = [
-            { title: 'Talent and Culture manager', company: 'Accor', location: 'Windhoek,Khomas,Namibia', link: 'https://www.bing.com/ck/a?!&&p=39fad450a10e424fJmltdHM9MTcxNDYwODAwMCZpZ3VpZD0yOWZhODUzNy1mYjAxLTYzNzYtMjNjMS05MTQ0ZmEwMTYyZjQmaW5zaWQ9NTE5OQ&ptn=3&ver=2&hsh=3&fclid=29fa8537-fb01-6376-23c1-9144fa0162f4&psq=jobs+in+windhoek&u=a1aHR0cHM6Ly9uYS5saW5rZWRpbi5jb20vam9icy9qb2JzLWluLXdpbmRob2VrP2NvdW50cnlSZWRpcmVjdGVkPTE&ntb=1' },
-            { title: 'Verification clerk', company: 'Momentum Metropolitant Holdings Limited', location: 'Windhoek,Khomas,Namibia', link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0' },
+            { title: 'Talent and Culture manager', company: 'Accor', location: 'Windhoek, Khomas, Namibia', link: 'https://www.bing.com/ck/a?!&&p=39fad450a10e424fJmltdHM9MTcxNDYwODAwMCZpZ3VpZD0yOWZhODUzNy1mYjAxLTYzNzYtMjNjMS05MTQ0ZmEwMTYyZjQmaW5zaWQ9NTE5OQ&ptn=3&ver=2&hsh=3&fclid=29fa8537-fb01-6376-23c1-9144fa0162f4&psq=jobs+in+windhoek&u=a1aHR0cHM6Ly9uYS5saW5rZWRpbi5jb20vam9icy9qb2JzLWluLXdpbmRob2VrP2NvdW50cnlSZWRpcmVjdGVkPTE&ntb=1' },
+            { title: 'Verification clerk', company: 'Momentum Metropolitant Holdings Limited', location: 'Windhoek, Khomas, Namibia', link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0' },
             // Add more job objects as needed
             {
                 title: 'Store manager',
                 company: 'Pepkor Speciality',
-                location: 'Windhoek,Khomas,Namibia',
+                location: 'Windhoek, Khomas, Namibia',
                 link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0'
             },
             {
                 title: 'Finance manager ',
                 company: 'RCL FLOODS',
-                location: 'Windhoek,Khomas,Namibia',
+                location: 'Windhoek, Khomas, Namibia',
                 link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0'
             },
             {
@@ -112,11 +142,11 @@
                 location: 'Windhoek,Khomas,Namibia',
                 link: 'https://na.linkedin.com/jobs/jobs-in-windhoek?countryRedirected=1&position=1&pageNum=0'
             },
-            ];
+        ];
         var jobdata1=[
-        {
+            {
                 title:'Diesel Mechanic 2024',company: 'Elite Employment' ,location: 'windhoek,khomas',
- link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
+                link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
             {
                 title:'Database Administrator',company: 'Angolo American' ,location: 'windhoek,khomas',
                 link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
@@ -140,8 +170,9 @@
             {
                 title:'Warehouse Operator III',company: 'Komatsu' ,location: 'windhoek,khomas',
                 link:'https://www.careerjet.co.na/jobad/na375c748d1346b0167aed353160537617'            },
-        ];
 
+            // Add more job objects as needed
+        ];
 
         var jobListHtml = '<ul>';
         jobData.forEach(function(job) {
@@ -154,4 +185,5 @@
 </script>
 </body>
 </html>
+
 
