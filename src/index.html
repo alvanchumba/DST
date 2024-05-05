@@ -9,38 +9,95 @@
 <body>
 
 <div class="container">
-    <h1>Login</h1>
-    <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="admin" required>
+    <div id="loginForm">
+        <h1>Login</h1>
+        <form>
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" name="username" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" value="admin" required>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="password"  required>
 
-        <button type="submit">Login</button>
-    </form>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+
+    <div id="signupForm" style="display: none;">
+        <h1>Signup</h1>
+        <form>
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" name="username" required>
+
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" name="password" required>
+
+            <button type="button" onclick="signup()">Sign Up</button>
+        </form>
+    </div>
+
     <div class="signup-link">
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <p>Don't have an account? <a href="#" onclick="showSignupForm()">Sign Up</a></p>
     </div>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const redirectDestination = localStorage.getItem('redirectDestination');
-        if (redirectDestination) {
-            localStorage.removeItem('redirectDestination'); // Remove it after use
-            location.href = redirectDestination;
-        }
-    });
+    function login() {
+        let username = document.getElementById('loginUsername').value;
+        let password = document.getElementById('loginPassword').value;
 
-    function showSignIn(destination) {
-        localStorage.setItem('redirectDestination', destination);
-        location.href = "index.html";
+        // AJAX request to send login data to server
+       const xhr = new XMLHttpRequest();
+        xhr.open("GET", "login.php?action=login&username=" + username + "&password=" + password, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const response = xhr.responseText;
+                // Handle the response from the server, e.g., redirect on successful login
+                if (response === "success") {
+                    window.location.href = "home.html";
+                } else {
+                    alert("Login failed. Please check your credentials.");
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    function signup() {
+        var username = document.getElementById('signupUsername').value;
+        var password = document.getElementById('signupPassword').value;
+
+        // AJAX request to send signup data to server
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "login.php?action=signup&username=" + username + "&password=" + password, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = xhr.responseText;
+                // Handle the response from the server, e.g., show success message or error
+                if (response === "success") {
+                    alert("Signup successful. You can now login.");
+                    showLoginForm(); // Optional: Automatically switch to log in form after successful signup
+                } else {
+                    alert("Signup failed. Please try again.");
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    function showSignupForm() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('signupForm').style.display = 'block';
+    }
+
+    function showLoginForm() {
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
     }
 </script>
 
 </body>
 </html>
+
 
 
 
