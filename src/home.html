@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <title>HOME</title>
     <link rel="stylesheet" href="home.css">
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Function to get a cookie by name
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Function to check and display the cookie value
+        function checkCookie() {
+            let user = getCookie("username");
+            if (user !== null) {
+                alert("Welcome again, " + user);
+            } else {
+                user = prompt("Please enter your name:", "");
+                if (user !== "" && user !== null) {
+                    setCookie("username", user, 7); // Set cookie to expire in 7 days
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="checkCookie()">
 <header>
     <div class="team-member">
         <img src="logo.jpeg" alt="logo.jpg">
